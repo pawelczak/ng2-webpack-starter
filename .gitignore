@@ -1,0 +1,11 @@
+.*
+!.gitignore
+*.log
+*.iml
+/dist/
+/node_modules/
+/coverage/
+
+
+# Typings #
+/typings/
