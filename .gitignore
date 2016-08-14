@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.gitkeep
 *.log
 *.iml
 /dist/
@@ -9,3 +10,4 @@
 
 # Typings #
 /typings/
+

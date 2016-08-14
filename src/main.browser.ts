@@ -1,9 +1,12 @@
 // 3d party imports
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
+import { enableProdMode } from '@angular/core'
 
 // app imports
-import { AppComponent } from './app/app.component';
+import {AppModule} from "./app/app.module";
 
-bootstrap(AppComponent, [
+if (process.env.ENV === 'production') {
+    enableProdMode();
+}
 
-]).catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(AppModule);
