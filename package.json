@@ -4,7 +4,9 @@
   "description": "Angular2 webpack starter",
   "keywords": [
     "angular2",
-    "webpack"
+    "webpack",
+    "karma",
+    "jasmine"
   ],
   "author": "Łukasz Pawełczak",
   "license": "MIT",
@@ -18,7 +20,7 @@
     "server:prod": "webpack-dev-server --config config/webpack.prod.js --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
     "start": "npm run server:dev",
     "start:prod": "npm run server:prod",
-    "test": "karma start",
+    "tests": "karma start",
     "postinstall": "typings -- install"
   },
   "dependencies": {

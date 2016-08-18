@@ -4,13 +4,14 @@ import { Component, OnInit } from '@angular/core';
 // app imports
 import { RepositoriesService } from './services/repositories.service';
 
+
 @Component({
     selector: 'repositories',
     providers: [
         RepositoriesService
     ],
     template: `Repos
-    <p>List of angular2 repos on github</p>
+    <p>List of most popular Angular2 repos on github</p>
     <ul>
         <li *ngFor="let repo of repositories">
         {{repo.name}} - {{repo.stargazers_count}}
@@ -26,8 +27,10 @@ export class RepositoriesComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.repositoriesService.getRepositories().subscribe((repos) => {
-            this.repositories = repos.items;
-        });
+        this.repositoriesService
+            .getRepositories()
+            .subscribe((repos) => {
+                this.repositories = repos;
+            });
     }
 }

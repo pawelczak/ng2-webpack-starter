@@ -1,4 +1,6 @@
-import {Component} from "@angular/core";
+// 3d party imports
+import { Component } from '@angular/core';
+
 
 @Component({
     selector: 'home',
