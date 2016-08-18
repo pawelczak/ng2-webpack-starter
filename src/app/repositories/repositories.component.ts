@@ -11,7 +11,7 @@ import { RepositoriesService } from './services/repositories.service';
         RepositoriesService
     ],
     template: `Repos
-    <p>List of most popular Angular2 repos on github</p>
+    <p>List of most popular Angular2 repos on github:</p>
     <ul>
         <li *ngFor="let repo of repositories">
         {{repo.name}} - {{repo.stargazers_count}}

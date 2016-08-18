@@ -33,14 +33,13 @@ describe('RepositoriesService', () => {
         inject([MockBackend, RepositoriesService], (backend: MockBackend, repositoriesService: RepositoriesService) => {
 
             // given
-            const rawReposData = {
-                items: [
-                    {name: 'Repo 1', stargazers_count: 28},
-                    {name: 'Repo 2', stargazers_count: 19}
-                ]
-            };
+            const rawReposData = [
+                // TODO TestFactory
+                {name: 'Repo 1', stargazers_count: 28},
+                {name: 'Repo 2', stargazers_count: 19}
+            ];
             const baseResponse = new Response(new ResponseOptions({
-                body: JSON.stringify(rawReposData),
+                body: JSON.stringify({items: rawReposData}),
                 status: 200
             }));
             backend.connections.subscribe((c: MockConnection) => c.mockRespond(baseResponse));
