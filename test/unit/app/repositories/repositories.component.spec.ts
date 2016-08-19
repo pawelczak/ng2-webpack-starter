@@ -1,6 +1,7 @@
 // 3d party imports
 import { TestBed } from '@angular/core/testing';
 import { Observable } from 'rxjs/Rx';
+import { Pipe, PipeTransform } from '@angular/core';
 
 // app imports
 import { RepositoriesComponent } from '../../../../src/app/repositories/repositories.component';
@@ -13,10 +14,21 @@ describe('RepositoriesComponent', () => {
         getRepositories() {
             // TODO TestFactory
             const repos = [
-                {name: 'Repo 1', stargazers_count: 28},
-                {name: 'Repo 2', stargazers_count: 19}
+                {name: 'Repo 1', stargazers_count: 3238},
+                {name: 'Repo 2', stargazers_count: 319},
+                {name: 'Repo 3', stargazers_count: 41}
             ];
             return Observable.of(repos);
+        }
+    }
+
+    // TODO use mock pipe
+    @Pipe({
+        name: 'starCount'
+    })
+    class MockStarCountPipe implements PipeTransform {
+        transform(objects: any[], param?: any) {
+            return objects.map((obj) => obj.stargazers_count + 100);
         }
     }
 
@@ -24,7 +36,8 @@ describe('RepositoriesComponent', () => {
         TestBed
             .configureTestingModule({
                 declarations: [
-                    RepositoriesComponent
+                    RepositoriesComponent,
+                    MockStarCountPipe
                 ]
             })
             .overrideComponent(RepositoriesComponent, {
@@ -33,8 +46,7 @@ describe('RepositoriesComponent', () => {
                         {provide: RepositoriesService, useClass: MockRepositoriesService}
                     ]
                 }
-            })
-            ;
+            });
     });
 
     it ('should have header message', () => {
@@ -52,13 +64,16 @@ describe('RepositoriesComponent', () => {
     it ('should have list of repos', () => {
 
         // given
-        const fixture = TestBed.createComponent(RepositoriesComponent);
+        const fixture = TestBed.createComponent(RepositoriesComponent),
+            compInstance = fixture.componentInstance,
+            element = fixture.nativeElement;
 
         // when
         fixture.detectChanges();
 
         // then
-        expect(fixture.componentInstance.repositories.length).toEqual(2);
+        expect(compInstance.repositories.length).toEqual(3);
+        expect(element.querySelectorAll('li').length).toEqual(2);
     });
 
 });
