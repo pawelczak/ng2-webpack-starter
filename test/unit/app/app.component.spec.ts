@@ -1,11 +1,11 @@
 // 3d party imports
 import { Component } from '@angular/core';
-import {RouterModule, Routes, Router, provideRoutes} from '@angular/router';
-import { TestBed, inject } from '@angular/core/testing';
+import { RouterModule, Routes, provideRoutes } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 // app imports
 import { AppComponent } from '../../../src/app/app.component';
-import {RouterTestingModule} from "@angular/router/testing";
 
 
 describe('AppComponent', () => {
@@ -41,7 +41,7 @@ describe('AppComponent', () => {
             });
     });
 
-    it ('should have header & footer', inject([Router], (r: Router) => {
+    it ('should have header & footer', () => {
 
         // given
         const fixture = TestBed.createComponent(AppComponent),
@@ -53,5 +53,5 @@ describe('AppComponent', () => {
         // then
         expect(element.querySelectorAll('header').length).toBe(1);
         expect(element.querySelectorAll('footer').length).toBe(1);
-    }));
+    });
 });
