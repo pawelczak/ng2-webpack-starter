@@ -46,7 +46,7 @@ describe('RepositoriesComponent', () => {
         fixture.detectChanges();
 
         // then
-        expect(fixture.nativeElement.querySelector('p').textContent).toContain('List of most popular Angular2 repos on github:');
+        expect(fixture.nativeElement.querySelector('p').textContent).toContain('List of most popular* Angular2 repos on github:');
     });
 
     it ('should have list of repos', () => {

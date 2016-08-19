@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // app imports
 import { RepositoriesService } from './services/repositories.service';
+import {RepositoryDirective} from "./directives/repository.directive";
 
 
 @Component({
@@ -10,13 +11,19 @@ import { RepositoriesService } from './services/repositories.service';
     providers: [
         RepositoriesService
     ],
-    template: `Repos
-    <p>List of most popular Angular2 repos on github:</p>
-    <ul>
-        <li *ngFor="let repo of repositories">
-        {{repo.name}} - {{repo.stargazers_count}}
+    directives: [
+        RepositoryDirective
+    ],
+    template: `
+    <div>
+        <p>List of most popular* Angular2 repos on github:</p>
+        <i>(most popular meaning repositories that have more than 300 stars)</i>
+    </div>
+    <ol>
+        <li *ngFor="let repo of repositories" >
+            <repository [item]="repo" ></repository>
         </li>
-    </ul>
+    </ol>
 `
 })
 export class RepositoriesComponent implements OnInit {
