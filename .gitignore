@@ -1,6 +1,7 @@
 .*
 !.gitignore
 !.gitkeep
+!.editorconfig
 *.log
 *.iml
 /dist/
