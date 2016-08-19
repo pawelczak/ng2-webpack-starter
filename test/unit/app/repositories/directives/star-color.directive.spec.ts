@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
 // app imports
-import {StarColorDirective} from '../../../../../src/app/repositories/directives/star-color.directive';
+import { StarColorDirective } from '../../../../../src/app/repositories/directives/star-color.directive';
 
 
 describe('StarColorDirective', () => {

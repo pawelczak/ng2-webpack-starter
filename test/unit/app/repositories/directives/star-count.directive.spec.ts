@@ -1,7 +1,9 @@
 // 3d party imports
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import {StarCountDirective} from "../../../../../src/app/repositories/directives/star-count.directive";
+
+// app imports
+import { StarCountDirective } from '../../../../../src/app/repositories/directives/star-count.directive';
 
 
 describe('StarCountDirective', () => {

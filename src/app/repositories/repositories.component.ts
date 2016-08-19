@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // app imports
 import { RepositoriesService } from './services/repositories.service';
-import {RepositoryDirective} from "./directives/repository.directive";
+import { RepositoryComponent } from './components/repository.component';
 
 
 @Component({
@@ -12,7 +12,7 @@ import {RepositoryDirective} from "./directives/repository.directive";
         RepositoriesService
     ],
     directives: [
-        RepositoryDirective
+        RepositoryComponent
     ],
     template: `
     <div>
