@@ -8,7 +8,7 @@ import { StarColorDirective } from '../directives/star-color.directive';
 @Component({
     selector: 'repository',
     directives: [StarColorDirective],
-    template: `<span>{{item?.name}}</span> - <span [starColor]="item.stargazers_count" >{{item.stargazers_count}}</span>`
+    template: require('./repository.component.html')
 })
 export class RepositoryComponent {
 
