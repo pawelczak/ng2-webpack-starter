@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
-import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { AboutComponent } from './about/about.component';
         AppComponent,
         HomeComponent,
         RepositoriesComponent,
-        AboutComponent
+        ContactComponent
     ],
     bootstrap: [
         AppComponent
