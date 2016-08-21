@@ -20,6 +20,12 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'raw-loader'
             }
-        ]
+        ],
+
+        tslint: {
+            emitErrors: false,
+            failOnHint: false,
+            resourcePath: 'src'
+        }
     }
 };

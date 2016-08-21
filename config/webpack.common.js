@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+var webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
@@ -37,7 +38,14 @@ module.exports = {
 
         plugins: [
             new webpack.optimize.OccurenceOrderPlugin(true),
-            new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: ['main', 'vendor', 'polyfills'],
+                minChunks: Infinity
+            }),
+            new HtmlWebpackPlugin({
+                template: 'src/index.html',
+                chunksSortMode: 'dependency'
+            }),
         ]
     }
 
