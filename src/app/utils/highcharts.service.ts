@@ -6,17 +6,17 @@ import { Highcharts } from './highcharts';
 @Injectable()
 export class HighchartsService {
 
-    // private highcharts : HighchartsStatic;
+    private highcharts: any; // HighchartsStatic;
 
     constructor() {
-        // this.highcharts = Highcharts;
+        this.highcharts = Highcharts;
     }
 
     createChart(options: any) {
-        new Highcharts.Chart(options);
+        new this.highcharts.Chart(options);
     }
 
     run(options: any) {
-        new Highcharts.Chart(options);
+        new this.highcharts.Chart(options);
     }
 }

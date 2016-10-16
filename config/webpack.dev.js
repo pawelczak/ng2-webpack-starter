@@ -1,15 +1,25 @@
 const webpackMerge = require('webpack-merge'),
     commonConfig = require('./webpack.common.js'),
-    validate = require('webpack-validator');
+    validate = require('webpack-validator'),
+    DefinePlugin = require('webpack/lib/DefinePlugin');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
 
 const config = webpackMerge(commonConfig, {
+
+    debug: true,
+
     devtool: 'cheap-module-eval-source-map',
 
+    plugins: [
+        new DefinePlugin({
+            'ENV': JSON.stringify(ENV)
+        })
+    ],
+
     tslint: {
-        emitErrors: false,
-        failOnHint: false,
+        emitErrors: true,
+        failOnHint: true,
         resourcePath: 'src'
     }
 });

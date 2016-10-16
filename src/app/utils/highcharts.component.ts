@@ -6,11 +6,10 @@ import { HighchartsService } from './highcharts.service';
 
 @Component({
     selector: 'highcharts',
-    template: `<div id="container" style="width:60%" ></div>`,
+    templateUrl: './highcharts.component.html',
     providers: [
         HighchartsService
     ]
-    // template: require('./highcharts.component.html')
 })
 export class HighchartsComponent implements AfterViewInit {
 

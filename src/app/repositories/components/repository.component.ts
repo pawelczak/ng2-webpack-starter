@@ -7,11 +7,12 @@ import { StarColorDirective } from '../directives/star-color.directive';
 
 @Component({
     selector: 'repository',
-    directives: [StarColorDirective],
-    template: require('./repository.component.html')
+    directives: [
+        StarColorDirective
+    ],
+    templateUrl: './repository.component.html'
 })
 export class RepositoryComponent {
 
-    @Input()
-    item: any;
+    @Input() item: any;
 }

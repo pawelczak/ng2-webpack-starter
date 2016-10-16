@@ -18,7 +18,7 @@ import { StarCountPipe } from './pipes/star-count.pipe';
     pipes: [
         StarCountPipe
     ],
-    template: require('./repositories.component.html')
+    templateUrl: './repositories.component.html'
 })
 export class RepositoriesComponent implements OnInit {
 

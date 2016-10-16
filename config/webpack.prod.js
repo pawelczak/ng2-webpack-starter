@@ -1,10 +1,15 @@
 const webpack = require('webpack'),
     webpackMerge = require('webpack-merge'),
-    commonConfig = require('./webpack.common.js');
+    commonConfig = require('./webpack.common.js'),
+    validate = require('webpack-validator'),
+    DefinePlugin = require('webpack/lib/DefinePlugin');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
-module.exports = webpackMerge(commonConfig, {
+const config = webpackMerge(commonConfig, {
+
+    debug: false,
+
     devtool: 'source-map',
 
     plugins: [
@@ -15,16 +20,17 @@ module.exports = webpackMerge(commonConfig, {
             mangle: { screw_ie8 : true },
             compress: { screw_ie8: true },
             comments: false
+        }),
+        new DefinePlugin({
+            'ENV': JSON.stringify(ENV)
         })
     ],
 
-    htmlLoader: {
-        minimize: false
-    },
-
     tslint: {
-        emitErrors: true,
-        failOnHint: true,
+        emitErrors: false,
+        failOnHint: false,
         resourcePath: './src'
     }
 });
+
+module.exports = validate(config);

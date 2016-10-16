@@ -11,17 +11,20 @@
   "author": "Łukasz Pawełczak",
   "license": "MIT",
   "scripts": {
+    "postinstall": "typings -- install",
+    "clean": "rimraf dist",
+    "preweback:build": "npm run clean",
+    "webpack:build": "webpack --inline --colors --progress --display-error-details --display-cached",
     "build": "npm run build:dev",
-    "build:dev": "webpack --config config/webpack.dev.js --inline --colors --progress --display-error-details --display-cached",
-    "build:prod": "webpack --config config/webpack.prod.js --inline --colors --progress --display-error-details --display-cached",
+    "build:dev": "npm run webpack:build -- --config config/webpack.dev.js",
+    "build:prod": "npm run webpack:build -- --config config/webpack.prod.js",
     "watch": "npm run build -- --watch",
     "server": "npm run server:dev",
     "server:dev": "webpack-dev-server --config config/webpack.dev.js --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
     "server:prod": "webpack-dev-server --config config/webpack.prod.js --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
     "start": "npm run server:dev",
     "start:prod": "npm run server:prod",
-    "tests": "karma start",
-    "postinstall": "typings -- install"
+    "tests": "karma start"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.5",
