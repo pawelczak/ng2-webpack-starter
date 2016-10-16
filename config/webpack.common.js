@@ -1,6 +1,9 @@
 const webpack = require('webpack'),
     path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
+    precss = require('precss'),
+    autoprefixer = require('autoprefixer');
 
 module.exports = {
 
@@ -16,7 +19,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.ts']
+        extensions: ['', '.js', '.ts', '.scss']
     },
 
     module: {
@@ -29,7 +32,20 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loaders: ['to-string-loader', 'css-loader']
+                loader: 'raw-loader'
+            },
+            {
+                test: /\.scss$/,
+                loaders: [
+                    'to-string',
+                    'css-loader?-url&sourceMap',
+                    'postcss-loader',
+                    'sass-loader?sourceMap'
+                ]
+            },
+            {
+                test: /\.(jpg|png)$/,
+                loader: 'url-loader?limit=10000000'
             },
             {
                 test: /\.html$/,
@@ -53,7 +69,18 @@ module.exports = {
             jQuery: 'jquery',
             $: 'jquery',
             jquery: 'jquery'
-        })
-    ]
+        }),
+        new CopyWebpackPlugin([{
+            from: path.join(__dirname, '../src/assets'),
+            to: path.join(__dirname, '../dist/assets')
+        }])
+    ],
+
+    postcss: function () {
+        return [
+            precss,
+            autoprefixer
+        ];
+    }
 
 };
