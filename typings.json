@@ -3,6 +3,8 @@
   "dependencies": {},
   "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "highcharts": "github:DefinitelyTyped/DefinitelyTyped/highcharts/highcharts.d.ts#c64873177e3b86a10f09a76b4d5545a0d8920ffb",
+    "highstock": "github:DefinitelyTyped/DefinitelyTyped/highcharts/highstock.d.ts#c64873177e3b86a10f09a76b4d5545a0d8920ffb",
     "node": "registry:dt/node#6.0.0+20160621231320"
   }
 }

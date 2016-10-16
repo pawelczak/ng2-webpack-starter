@@ -46,6 +46,11 @@ module.exports = {
                 template: 'src/index.html',
                 chunksSortMode: 'dependency'
             }),
+            new webpack.ProvidePlugin({
+                jQuery: 'jquery',
+                $: 'jquery',
+                jquery: 'jquery'
+            })
         ]
     }
 
