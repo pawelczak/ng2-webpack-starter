@@ -1,5 +1,6 @@
 // 3d party imports
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, AfterViewInit} from '@angular/core';
+
 import { HighchartsService } from './highcharts.service';
 
 
@@ -11,7 +12,7 @@ import { HighchartsService } from './highcharts.service';
     ]
     // template: require('./highcharts.component.html')
 })
-export class HighchartsComponent {
+export class HighchartsComponent implements AfterViewInit {
 
     @Input() options: any = {
 
@@ -32,7 +33,6 @@ export class HighchartsComponent {
                     left: '50px',
                     top: '18px',
                     color: 'black'
-                    // color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
                 }
             }]
         },
@@ -55,7 +55,6 @@ export class HighchartsComponent {
             marker: {
                 lineWidth: 2,
                 lineColor: 'red',
-                // lineColor: Highcharts.getOptions().colors[3],
                 fillColor: 'white'
             }
         }, {
@@ -65,17 +64,14 @@ export class HighchartsComponent {
                 name: 'Jane',
                 y: 13,
                 color: 'black'
-                // color: Highcharts.getOptions().colors[0] // Jane's color
             }, {
                 name: 'John',
                 y: 23,
                 color: 'black'
-                // color: Highcharts.getOptions().colors[1] // John's color
             }, {
                 name: 'Joe',
                 y: 19,
                 color: 'black'
-                // color: Highcharts.getOptions().colors[2] // Joe's color
             }],
             center: [100, 80],
             size: 100,
@@ -94,6 +90,5 @@ export class HighchartsComponent {
 
     private render() {
         this.highchartsService.run(this.options);
-        //
     }
 }

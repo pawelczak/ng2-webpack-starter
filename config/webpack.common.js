@@ -1,4 +1,5 @@
-var webpack = require('webpack'),
+const webpack = require('webpack'),
+    path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -11,7 +12,7 @@ module.exports = {
 
     output: {
         filename: '[name].bundle.js',
-        path: './dist'
+        path: path.join(__dirname, 'dist')
     },
 
     resolve: {
@@ -34,24 +35,25 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'raw-loader'
             }
-        ],
-
-        plugins: [
-            new webpack.optimize.OccurenceOrderPlugin(true),
-            new webpack.optimize.CommonsChunkPlugin({
-                name: ['main', 'vendor', 'polyfills'],
-                minChunks: Infinity
-            }),
-            new HtmlWebpackPlugin({
-                template: 'src/index.html',
-                chunksSortMode: 'dependency'
-            }),
-            new webpack.ProvidePlugin({
-                jQuery: 'jquery',
-                $: 'jquery',
-                jquery: 'jquery'
-            })
         ]
-    }
+
+    },
+
+    plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(true),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['main', 'vendor', 'polyfills'],
+            minChunks: Infinity
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            chunksSortMode: 'dependency'
+        }),
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
+        })
+    ]
 
 };

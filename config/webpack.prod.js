@@ -1,4 +1,4 @@
-var webpack = require('webpack'),
+const webpack = require('webpack'),
     webpackMerge = require('webpack-merge'),
     commonConfig = require('./webpack.common.js');
 
@@ -10,12 +10,12 @@ module.exports = webpackMerge(commonConfig, {
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.DedupePlugin(),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     beautify: false,
-        //     mangle: { screw_ie8 : true },
-        //     compress: { screw_ie8: true },
-        //     comments: false
-        // })
+        new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            mangle: { screw_ie8 : true },
+            compress: { screw_ie8: true },
+            comments: false
+        })
     ],
 
     htmlLoader: {
