@@ -3,20 +3,12 @@ import { Component, OnInit } from '@angular/core';
 
 // app imports
 import { RepositoriesService } from './services/repositories.service';
-import { RepositoryComponent } from './components/repository.component';
-import { StarCountPipe } from './pipes/star-count.pipe';
 
 
 @Component({
     selector: 'repositories',
     providers: [
         RepositoriesService
-    ],
-    directives: [
-        RepositoryComponent
-    ],
-    pipes: [
-        StarCountPipe
     ],
     templateUrl: './repositories.component.html'
 })
