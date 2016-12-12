@@ -12,7 +12,6 @@
   "author": "Łukasz Pawełczak",
   "license": "MIT",
   "scripts": {
-    "postinstall": "typings -- install",
     "clean": "rimraf dist",
     "clean:aot": "rimraf dist-aot",
     "prewebpack:build": "npm run clean",
@@ -54,7 +53,6 @@
     "@types/es6-shim": "0.0.31",
     "@types/jasmine": "^2.2.33",
     "@types/node": "^6.0.38",
-    "@types/protractor": "^1.5.18",
     "angular2-template-loader": "^0.4.0",
     "autoprefixer": "^6.5.1",
     "awesome-typescript-loader": "^1.1.1",
@@ -79,7 +77,6 @@
     "tslint": "^3.14.0",
     "tslint-loader": "^2.1.5",
     "typescript": "2.1.1",
-    "typings": "~1.0.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",

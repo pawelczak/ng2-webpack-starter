@@ -16,12 +16,15 @@
         "noImplicitUseStrict": false,
         "noFallthroughCasesInSwitch": true,
         "outDir": "./aot",
-        "types": []
+        "types": [
+            "es6-shim",
+            "jasmine",
+            "node"
+        ]
     },
     "files": [
         "src/app/app.module.ts",
-        "src/main.browser.ts",
-        "./typings/index.d.ts"
+        "src/main.browser.ts"
     ],
     "exclude": [
         "node_modules",

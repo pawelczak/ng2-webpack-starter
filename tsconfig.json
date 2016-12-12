@@ -8,7 +8,12 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "types": [
+          "es6-shim",
+          "jasmine",
+          "node"
+      ]
   },
   "exclude": [
     "node_modules"
