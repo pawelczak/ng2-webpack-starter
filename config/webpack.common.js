@@ -4,6 +4,7 @@ const webpack = require('webpack'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
     precss = require('precss'),
     autoprefixer = require('autoprefixer'),
+    CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin'),
     LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 module.exports = {
@@ -28,7 +29,10 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+                loaders: [
+                    'awesome-typescript-loader',
+                    'angular2-template-loader'
+                ],
                 exclude: /node_modules/
             },
             {
@@ -58,7 +62,7 @@ module.exports = {
 
     plugins: [
         // new webpack.optimize.OccurenceOrderPlugin(true),
-        new webpack.optimize.CommonsChunkPlugin({
+        new CommonsChunkPlugin({
             name: ['main', 'vendor', 'polyfills'],
             minChunks: Infinity
         }),
@@ -76,7 +80,6 @@ module.exports = {
             to: path.join(__dirname, '../dist/assets')
         }]),
         new LoaderOptionsPlugin({
-            debug: true,
             options: {
 
                 /**

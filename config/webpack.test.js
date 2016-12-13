@@ -6,26 +6,27 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.ts$/,
-                loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+                loaders: [
+                    'awesome-typescript-loader',
+                    'angular2-template-loader'
+                ],
                 exclude: /node_modules/
             },
             {
                 test: /\.css$/,
-                loaders: ['to-string-loader', 'css-loader']
+                loaders: [
+                    'to-string-loader',
+                    'css-loader'
+                ]
             },
             {
                 test: /\.html$/,
                 loader: 'raw-loader'
             }
-        ],
+        ]
 
-        tslint: {
-            emitErrors: false,
-            failOnHint: false,
-            resourcePath: 'src'
-        }
     }
 };
