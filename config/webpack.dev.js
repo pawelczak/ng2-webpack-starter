@@ -1,13 +1,10 @@
 const webpackMerge = require('webpack-merge'),
     commonConfig = require('./webpack.common.js'),
-    validate = require('webpack-validator'),
     DefinePlugin = require('webpack/lib/DefinePlugin');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
 
 const config = webpackMerge(commonConfig, {
-
-    debug: true,
 
     devtool: 'cheap-module-eval-source-map',
 
@@ -17,11 +14,11 @@ const config = webpackMerge(commonConfig, {
         })
     ],
 
-    tslint: {
-        emitErrors: true,
-        failOnHint: true,
-        resourcePath: 'src'
-    }
+    // tslint: {
+    //     emitErrors: true,
+    //     failOnHint: true,
+    //     resourcePath: 'src'
+    // }
 });
 
-module.exports = validate(config);
+module.exports = config;

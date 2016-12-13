@@ -3,7 +3,8 @@ const webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
     precss = require('precss'),
-    autoprefixer = require('autoprefixer');
+    autoprefixer = require('autoprefixer'),
+    LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 module.exports = {
 
@@ -19,12 +20,12 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.ts', '.scss']
+        extensions: ['.js', '.ts', '.scss']
     },
 
     module: {
 
-        loaders: [
+        rules: [
             {
                 test: /\.ts$/,
                 loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
@@ -56,7 +57,7 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(true),
+        // new webpack.optimize.OccurenceOrderPlugin(true),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['main', 'vendor', 'polyfills'],
             minChunks: Infinity
@@ -73,14 +74,31 @@ module.exports = {
         new CopyWebpackPlugin([{
             from: path.join(__dirname, '../src/assets'),
             to: path.join(__dirname, '../dist/assets')
-        }])
-    ],
+        }]),
+        new LoaderOptionsPlugin({
+            debug: true,
+            options: {
 
-    postcss: function () {
-        return [
-            precss,
-            autoprefixer
-        ];
-    }
+                /**
+                 * Static analysis linter for TypeScript advanced options configuration
+                 * Description: An extensible linter for the TypeScript language.
+                 *
+                 * See: https://github.com/wbuchwalter/tslint-loader
+                 */
+                tslint: {
+                    emitErrors: false,
+                    failOnHint: false,
+                    resourcePath: 'src'
+                },
+
+                postcss: function () {
+                    return [
+                        precss,
+                        autoprefixer
+                    ];
+                }
+            }
+        })
+    ]
 
 };
