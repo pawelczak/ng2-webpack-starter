@@ -22,7 +22,7 @@ class TestComponent {
 }
 
 
-describe('RepositoryComponent', () => {
+xdescribe('RepositoryComponent', () => {
 
     beforeEach(() => {
         TestBed
