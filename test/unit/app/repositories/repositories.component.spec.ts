@@ -6,9 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 // app imports
 import { RepositoriesComponent } from '../../../../src/app/repositories/repositories.component';
 import { RepositoriesService } from '../../../../src/app/repositories/services/repositories.service';
+import { RepositoryComponent } from '../../../../src/app/repositories/components/repository.component';
+import { StarColorDirective } from '../../../../src/app/repositories/directives/star-color.directive';
 
 
-xdescribe('RepositoriesComponent', () => {
+describe('RepositoriesComponent', () => {
 
     class MockRepositoriesService {
         getRepositories() {
@@ -28,7 +30,7 @@ xdescribe('RepositoriesComponent', () => {
     })
     class MockStarCountPipe implements PipeTransform {
         transform(objects: any[], param?: any) {
-            return objects.map((obj) => obj.stargazers_count + 100);
+            return objects.filter(f => {return f.stargazers_count >= 300;}); //.map((obj) => obj.stargazers_count + 100);
         }
     }
 
@@ -37,6 +39,8 @@ xdescribe('RepositoriesComponent', () => {
             .configureTestingModule({
                 declarations: [
                     RepositoriesComponent,
+                    RepositoryComponent,
+                    StarColorDirective,
                     MockStarCountPipe
                 ]
             })

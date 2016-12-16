@@ -13,4 +13,3 @@ import 'rxjs';
 // You can import js, ts, css, sass, ...
 
 import 'jquery';
-// import 'highcharts/highstock.src';

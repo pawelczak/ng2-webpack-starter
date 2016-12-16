@@ -4,6 +4,7 @@ import { TestBed } from '@angular/core/testing';
 
 // app imports
 import { RepositoryComponent } from '../../../../../src/app/repositories/components/repository.component';
+import { StarColorDirective } from '../../../../../src/app/repositories/directives/star-color.directive';
 
 
 // Test setup, mocks, data
@@ -22,13 +23,14 @@ class TestComponent {
 }
 
 
-xdescribe('RepositoryComponent', () => {
+describe('RepositoryComponent', () => {
 
     beforeEach(() => {
         TestBed
             .configureTestingModule({
                declarations: [
                    RepositoryComponent,
+                   StarColorDirective,
                    TestComponent
                ]
             });
