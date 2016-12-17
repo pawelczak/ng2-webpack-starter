@@ -10,9 +10,10 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "types": [
-          "es6-shim",
-          "jasmine",
-          "node"
+        "cucumber",
+        "es6-shim",
+        "jasmine",
+        "node"
       ]
   },
   "exclude": [

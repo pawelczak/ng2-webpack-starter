@@ -28,7 +28,12 @@
     "test": "karma start",
     "ngc": "ngc -p tsconfig.aot.json --locale=en-US",
     "webpack:aot": "ngc -p tsconfig.aot.json --locale=en-US && webpack --config config/webpack.aot.js",
-    "prewebpack:aot": "npm run clean:aot"
+    "prewebpack:aot": "npm run clean:aot",
+    "webdriver-manager": "webdriver-manager",
+    "webdriver:update": "webdriver-manager update",
+    "protractor": "protractor",
+    "pree2e": "npm run webdriver:update -- --standalone",
+    "e2e": "npm run protractor"
   },
   "dependencies": {
     "@angular/common": "2.2.1",
@@ -49,6 +54,7 @@
     "zone.js": "~0.6.23"
   },
   "devDependencies": {
+    "@types/cucumber": "0.0.31",
     "@types/es6-shim": "0.0.31",
     "@types/jasmine": "^2.2.33",
     "@types/node": "^6.0.38",
@@ -57,6 +63,8 @@
     "awesome-typescript-loader": "^1.1.1",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
+    "cucumber": "^2.0.0-rc.2",
+    "cucumber-tsflow": "^1.1.2",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "jasmine-core": "^2.4.1",
@@ -69,10 +77,13 @@
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.12",
     "precss": "^1.4.0",
+    "protractor": "^4.0.13",
+    "protractor-cucumber-framework": "^0.6.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.2",
     "to-string-loader": "^1.1.4",
     "ts-helpers": "^1.1.1",
+    "ts-node": "^1.7.2",
     "tslint": "^3.14.0",
     "tslint-loader": "^2.1.5",
     "typescript": "2.1.1",
