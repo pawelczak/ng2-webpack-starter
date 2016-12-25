@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { RepositoryComponent } from './repositories/components/repository.component';
 import { StarColorDirective } from './repositories/directives/star-color.directive';
 import { StarCountPipe } from './repositories/pipes/star-count.pipe';
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { StarCountPipe } from './repositories/pipes/star-count.pipe';
         RepositoryComponent,
         ContactComponent,
         StarColorDirective,
-        StarCountPipe
+        StarCountPipe,
+        ContactFormComponent
     ],
     bootstrap: [
         AppComponent

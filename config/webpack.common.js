@@ -11,7 +11,10 @@ module.exports = {
 
     entry: {
         'polyfills': './src/polyfills.browser.ts',
-        'vendor': './src/vendor.browser.ts',
+        'vendor': [
+            './src/vendor.browser.ts',
+            './node_modules/bootstrap/dist/css/bootstrap.min.css'
+        ],
         'main': './src/main.browser.ts'
     },
 
@@ -21,7 +24,15 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.js', '.ts', '.scss']
+        extensions: ['.js', '.ts', '.scss', '.css', '.json'],
+        modules: [
+            path.join(__dirname, '../node_modules'),
+            path.join(__dirname, '../src')
+        ]
+    },
+
+    resolveLoader: {
+        moduleExtensions: ['-loader']
     },
 
     module: {
@@ -37,7 +48,10 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'raw-loader'
+                loaders: [
+                    'style-loader',
+                    'raw-loader'
+                ]
             },
             {
                 test: /\.scss$/,
@@ -70,11 +84,11 @@ module.exports = {
             template: 'src/index.html',
             chunksSortMode: 'dependency'
         }),
-        new webpack.ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery',
-            jquery: 'jquery'
-        }),
+        // new webpack.ProvidePlugin({
+        //     jQuery: 'jquery',
+        //     $: 'jquery',
+        //     jquery: 'jquery'
+        // }),
         new CopyWebpackPlugin([{
             from: path.join(__dirname, '../src/assets'),
             to: path.join(__dirname, '../dist/assets')
