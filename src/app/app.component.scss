@@ -1,5 +1,20 @@
-.link-gh {
-    background: url('../assets/images/github.png');
-    background-repeat: no-repeat;
-    transition: background 0.4s linear;
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+
+    .container p {
+        margin: 20px 0;
+    }
 }

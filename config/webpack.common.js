@@ -50,16 +50,16 @@ module.exports = {
                 test: /\.css$/,
                 loaders: [
                     'style-loader',
-                    'raw-loader'
+                    'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
                 loaders: [
-                    'to-string',
-                    'css-loader?-url&sourceMap',
-                    'postcss-loader',
-                    'sass-loader?sourceMap'
+                    'to-string-loader',
+                    'css-loader',
+                    // 'postcss-loader',
+                    'sass-loader'
                 ]
             },
             {
@@ -69,6 +69,22 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'raw-loader'
+            },
+            {
+                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?limit=10000&mimetype=application/octet-stream'
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file'
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?limit=10000&mimetype=image/svg+xml'
             }
         ]
 

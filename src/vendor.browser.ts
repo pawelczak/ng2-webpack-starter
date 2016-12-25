@@ -13,6 +13,6 @@ import 'rxjs';
 // You can import js, ts, css, sass, ...
 
 // import 'jquery';
-// import 'lodash';
+import 'lodash';
 
 // import 'bootstrap-loader';
