@@ -1,0 +1,14 @@
+<div>
+    <h2>Messages</h2>
+
+    <div *ngIf="messages.length === 0">
+        There is not messages.
+    </div>
+
+    <div *ngFor="let message of messages" class="message">
+        <div>{{message.title}}</div>
+        <div>{{message.email}}</div>
+        <div class="well">{{message.text}}</div>
+    </div>
+
+</div>

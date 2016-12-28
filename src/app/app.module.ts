@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // app imports
 import { AppComponent } from './app.component';
@@ -13,12 +14,14 @@ import { RepositoryComponent } from './repositories/components/repository.compon
 import { StarColorDirective } from './repositories/directives/star-color.directive';
 import { StarCountPipe } from './repositories/pipes/star-count.pipe';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import { MessageListComponent } from './contact/message-list/message-list.component';
 
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
+        ReactiveFormsModule,
         routing
     ],
     declarations: [
@@ -29,7 +32,8 @@ import { ContactFormComponent } from './contact/contact-form/contact-form.compon
         ContactComponent,
         StarColorDirective,
         StarCountPipe,
-        ContactFormComponent
+        ContactFormComponent,
+        MessageListComponent
     ],
     bootstrap: [
         AppComponent
