@@ -7,11 +7,13 @@ import { EmailValidator } from '../../util/validators/email.validator';
 
 @Component({
     selector: 'contact-form',
-    templateUrl: './contact-form.component.html'
+    templateUrl: './contact-form.component.html',
+    styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit {
 
     addMessageForm: FormGroup;
+    submitted: boolean = false;
 
     constructor(private formBuilder: FormBuilder,
                 private messagesService: MessagesService) {}
@@ -25,8 +27,11 @@ export class ContactFormComponent implements OnInit {
     }
 
     addMessage(message: MessageForm) {
+        this.submitted = true;
         if (this.addMessageForm.valid) {
             this.messagesService.addMessage(message);
+            this.addMessageForm.reset();
+            this.submitted = false;
         }
     }
 

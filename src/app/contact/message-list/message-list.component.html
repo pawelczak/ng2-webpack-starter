@@ -2,13 +2,22 @@
     <h2>Messages</h2>
 
     <div *ngIf="messages.length === 0">
-        There is not messages.
+        <p>There is no messages.</p>
     </div>
 
     <div *ngFor="let message of messages" class="message">
-        <div>{{message.title}}</div>
-        <div>{{message.email}}</div>
-        <div class="well">{{message.text}}</div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>
+                    <strong>{{message.title}}</strong>
+                    <span (click)="remove(message)" class="glyphicon glyphicon-remove align-right"></span>
+                </p>
+                <p>
+                    <i>{{message.email}}</i> - <strong>{{message.date}}</strong>
+                </p>
+                <div class="well">{{message.text}}</div>
+            </div>
+        </div>
     </div>
 
 </div>

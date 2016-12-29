@@ -23,4 +23,8 @@ export class MessageListComponent implements OnInit {
                 this.messages = messages;
             });
     }
+
+    remove(message: Message): void {
+        this.messageService.remove(message);
+    }
 }

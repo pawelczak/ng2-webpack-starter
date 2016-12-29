@@ -24,13 +24,27 @@ export class MessagesService {
         this.messages$.next(this.messages);
     }
 
+    remove(message: Message): void {
+        this.messages = this.messages.filter((m) => {
+            return m !== message
+        });
+        this.messages$.next(this.messages);
+    }
+
     private convertMessageFormToMessage(form: MessageForm): Message {
         let message = new Message();
 
         message.title = form.title;
         message.email = form.email;
         message.text = form.message;
+        message.date = this.getDateNow();
 
         return message;
+    }
+
+    private getDateNow(): string {
+        let date = new Date();
+
+        return date.getDay() + '.' + date.getMonth() + '.' + date.getFullYear();
     }
 }

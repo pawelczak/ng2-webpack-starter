@@ -1,0 +1,20 @@
+$red: #ce4844;
+
+.ng-touched.ng-invalid {
+    border-color: $red;
+}
+
+input {
+    background-color: white;
+}
+
+.control-error {
+    color: $red;
+    margin: 10px 0 0;
+}
+
+.form-submitted {
+    .ng-invalid {
+        border-color: $red;
+    }
+}
