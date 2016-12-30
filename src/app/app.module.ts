@@ -15,10 +15,9 @@ import { StarColorDirective } from './repositories/directives/star-color.directi
 import { StarCountPipe } from './repositories/pipes/star-count.pipe';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { MessageListComponent } from './contact/message-list/message-list.component';
-import { ModalComponent } from './util/modal/modal.component';
-import { ModalService } from './util/modal/modal.service';
-import { ModalCommunicationService } from './util/modal/modal-communication.service';
-import { MessageConfirmRemoveComponent } from './contact/message-list/message-confirm-remove.component';
+import { ModalWindowComponent } from './util/modal/modal-window.component';
+import { ConfirmMessageRemoveComponent } from './contact/message-list/confirm-message-remove.component';
+import { ModalModule } from './util/modal/modal.module';
 
 
 @NgModule({
@@ -26,6 +25,7 @@ import { MessageConfirmRemoveComponent } from './contact/message-list/message-co
         BrowserModule,
         HttpModule,
         ReactiveFormsModule,
+        ModalModule,
         routing
     ],
     declarations: [
@@ -38,16 +38,12 @@ import { MessageConfirmRemoveComponent } from './contact/message-list/message-co
         StarCountPipe,
         ContactFormComponent,
         MessageListComponent,
-        ModalComponent,
-        MessageConfirmRemoveComponent
+        ConfirmMessageRemoveComponent
     ],
-    providers: [
-        ModalService,
-        ModalCommunicationService
-    ],
+    providers: [],
     entryComponents: [
-        ModalComponent,
-        MessageConfirmRemoveComponent
+        ModalWindowComponent,
+        ConfirmMessageRemoveComponent
     ],
     bootstrap: [
         AppComponent

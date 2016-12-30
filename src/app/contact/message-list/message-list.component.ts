@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Message } from '../message';
 import { MessagesService } from '../messages.service';
-import { ModalService } from '../../util/modal/modal.service';
-import { MessageConfirmRemoveComponent } from './message-confirm-remove.component';
+import { ModalWindowService } from '../../util/modal/modal-window.service';
+import { ConfirmMessageRemoveComponent } from './confirm-message-remove.component';
 import { ModalConfiguration } from '../../util/modal/modal-configuration';
 
 @Component({
@@ -25,7 +25,7 @@ export class MessageListComponent implements OnInit {
     };
 
     constructor(private messageService: MessagesService,
-                private modalService: ModalService) {}
+                private modalService: ModalWindowService) {}
 
     ngOnInit() {
         this.messageService
@@ -37,7 +37,7 @@ export class MessageListComponent implements OnInit {
 
     remove(message: Message): void {
 
-        const subscription = this.modalService.open(this.modalConfig, MessageConfirmRemoveComponent);
+        const subscription = this.modalService.open(this.modalConfig, ConfirmMessageRemoveComponent);
 
         subscription
             .subscribe((response: boolean) => {

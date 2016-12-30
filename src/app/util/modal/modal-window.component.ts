@@ -4,12 +4,12 @@ import { ModalCommunicationService } from './modal-communication.service';
 
 @Component({
     selector: 'modal-window',
-    templateUrl: './modal.component.html',
+    templateUrl: './modal-window.component.html',
     styleUrls: [
-        './modal.component.scss'
+        './modal-window.component.scss'
     ]
 })
-export class ModalComponent {
+export class ModalWindowComponent {
 
     title = 'title';
 

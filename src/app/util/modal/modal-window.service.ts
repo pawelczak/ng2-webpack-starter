@@ -1,13 +1,13 @@
 import { Injectable, ComponentFactoryResolver, ApplicationRef, Injector } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
-import { ModalComponent } from './modal.component';
+import { ModalWindowComponent } from './modal-window.component';
 import { ModalCommunicationService } from './modal-communication.service';
 import { ModalConfiguration } from './modal-configuration';
 
 
 @Injectable()
-export class ModalService {
+export class ModalWindowService {
 
     private modalComponentRef: any;
 
@@ -22,7 +22,7 @@ export class ModalService {
             return Observable.never();
         }
 
-        const modalComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ModalComponent);
+        const modalComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ModalWindowComponent);
 
         if (nestedComponent !== undefined) {
             const nestedComponentFactory = this.componentFactoryResolver.resolveComponentFactory(nestedComponent);
@@ -38,8 +38,6 @@ export class ModalService {
         document.querySelector('body').appendChild(this.modalComponentRef.location.nativeElement);
 
         this.applicationRef.attachView(this.modalComponentRef.hostView);
-
-        this.applicationRef.tick();
 
         this.modalCommunicationService.getAction().subscribe(() => {
             this.close();
