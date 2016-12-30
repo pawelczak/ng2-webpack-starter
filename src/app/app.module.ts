@@ -15,6 +15,10 @@ import { StarColorDirective } from './repositories/directives/star-color.directi
 import { StarCountPipe } from './repositories/pipes/star-count.pipe';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { MessageListComponent } from './contact/message-list/message-list.component';
+import { ModalComponent } from './util/modal/modal.component';
+import { ModalService } from './util/modal/modal.service';
+import { ModalCommunicationService } from './util/modal/modal-communication.service';
+import { MessageConfirmRemoveComponent } from './contact/message-list/message-confirm-remove.component';
 
 
 @NgModule({
@@ -33,7 +37,17 @@ import { MessageListComponent } from './contact/message-list/message-list.compon
         StarColorDirective,
         StarCountPipe,
         ContactFormComponent,
-        MessageListComponent
+        MessageListComponent,
+        ModalComponent,
+        MessageConfirmRemoveComponent
+    ],
+    providers: [
+        ModalService,
+        ModalCommunicationService
+    ],
+    entryComponents: [
+        ModalComponent,
+        MessageConfirmRemoveComponent
     ],
     bootstrap: [
         AppComponent
