@@ -11,16 +11,16 @@ describe('ContactComponent', () => {
         TestBed.configureTestingModule({declarations: [ContactComponent]});
     });
 
-    it ('should have default template', () => {
-
-        // given
-        const fixture = TestBed.createComponent(ContactComponent);
-
-        // when
-        fixture.detectChanges();
-
-        // then
-        expect(fixture.nativeElement.textContent).toContain('Contact');
-    });
+    // it ('should have default template', () => {
+	//
+    //     // given
+    //     const fixture = TestBed.createComponent(ContactComponent);
+	//
+    //     // when
+    //     fixture.detectChanges();
+	//
+    //     // then
+    //     expect(fixture.nativeElement.textContent).toContain('Contact');
+    // });
 
 });

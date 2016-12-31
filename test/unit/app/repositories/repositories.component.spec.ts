@@ -1,7 +1,8 @@
 // 3d party imports
 import { TestBed } from '@angular/core/testing';
-import { Observable } from 'rxjs/Rx';
 import { Pipe, PipeTransform } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 
 // app imports
 import { RepositoriesComponent } from '../../../../src/app/repositories/repositories.component';
@@ -15,12 +16,15 @@ describe('RepositoriesComponent', () => {
     class MockRepositoriesService {
         getRepositories() {
             // TODO TestFactory
-            const repos = [
-                {name: 'Repo 1', stargazers_count: 3238},
-                {name: 'Repo 2', stargazers_count: 319},
-                {name: 'Repo 3', stargazers_count: 41}
-            ];
-            return Observable.of(repos);
+            return new Observable((observer: Observer<any>) => {
+                const repos = [
+                    {name: 'Repo 1', stargazers_count: 3238},
+                    {name: 'Repo 2', stargazers_count: 319},
+                    {name: 'Repo 3', stargazers_count: 41}
+                ];
+                observer.next(repos);
+                observer.complete();
+            });
         }
     }
 

@@ -23,6 +23,15 @@ module.exports = {
                 ]
             },
             {
+                test: /\.scss$/,
+                loaders: [
+                    'to-string-loader',
+                    'css-loader',
+                    // 'postcss-loader',
+                    'sass-loader'
+                ]
+            },
+            {
                 test: /\.html$/,
                 loader: 'raw-loader'
             }

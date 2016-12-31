@@ -1,4 +1,7 @@
-import { Injectable, ComponentFactoryResolver, ApplicationRef, Injector } from '@angular/core';
+import {
+    Injectable, ComponentFactoryResolver, ApplicationRef, Injector,
+    ComponentRef
+} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { ModalWindowComponent } from './modal-window.component';
@@ -9,14 +12,15 @@ import { ModalConfiguration } from './modal-configuration';
 @Injectable()
 export class ModalWindowService {
 
-    private modalComponentRef: any;
+    private modalComponentRef: ComponentRef<ModalWindowComponent>;
 
     constructor(private applicationRef: ApplicationRef,
                 private componentFactoryResolver: ComponentFactoryResolver,
                 private injector: Injector,
-                private modalCommunicationService: ModalCommunicationService) {}
+                private modalCommunicationService: ModalCommunicationService) {
+    }
 
-    open(config: ModalConfiguration = <ModalConfiguration>{}, nestedComponent?: any): Observable<any> {
+    open(config: ModalConfiguration = <ModalConfiguration>{}, nestedComponent?: any): Observable<boolean> {
 
         if (this.modalComponentRef) {
             return Observable.never();

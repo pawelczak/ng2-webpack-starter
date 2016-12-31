@@ -15,7 +15,6 @@ import { StarColorDirective } from './repositories/directives/star-color.directi
 import { StarCountPipe } from './repositories/pipes/star-count.pipe';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { MessageListComponent } from './contact/message-list/message-list.component';
-import { ModalWindowComponent } from './util/modal/modal-window.component';
 import { ConfirmMessageRemoveComponent } from './contact/message-list/confirm-message-remove.component';
 import { ModalModule } from './util/modal/modal.module';
 
@@ -42,7 +41,6 @@ import { ModalModule } from './util/modal/modal.module';
     ],
     providers: [],
     entryComponents: [
-        ModalWindowComponent,
         ConfirmMessageRemoveComponent
     ],
     bootstrap: [

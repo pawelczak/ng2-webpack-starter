@@ -19,7 +19,7 @@ describe('AppComponent', () => {
     const mockRoutes: Routes = [
         { path: '', component: EmptyComponent },
         { path: 'repos', component: EmptyComponent },
-        { path: 'about', component: EmptyComponent}
+        { path: 'contact', component: EmptyComponent}
     ];
 
     const mockRouting = RouterModule.forRoot(mockRoutes);
@@ -41,7 +41,7 @@ describe('AppComponent', () => {
             });
     });
 
-    it ('should have header & footer', () => {
+    it ('should have navigation & footer', () => {
 
         // given
         const fixture = TestBed.createComponent(AppComponent),
@@ -51,7 +51,7 @@ describe('AppComponent', () => {
         fixture.detectChanges();
 
         // then
-        expect(element.querySelectorAll('header').length).toBe(1);
+        expect(element.querySelectorAll('nav').length).toBe(1);
         expect(element.querySelectorAll('footer').length).toBe(1);
     });
 });

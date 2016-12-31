@@ -25,7 +25,7 @@ export class MessageListComponent implements OnInit {
     };
 
     constructor(private messageService: MessagesService,
-                private modalService: ModalWindowService) {}
+                private modalWindowService: ModalWindowService) {}
 
     ngOnInit() {
         this.messageService
@@ -37,7 +37,7 @@ export class MessageListComponent implements OnInit {
 
     remove(message: Message): void {
 
-        const subscription = this.modalService.open(this.modalConfig, ConfirmMessageRemoveComponent);
+        const subscription = this.modalWindowService.open(this.modalConfig, ConfirmMessageRemoveComponent);
 
         subscription
             .subscribe((response: boolean) => {
