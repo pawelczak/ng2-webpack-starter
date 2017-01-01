@@ -56,13 +56,14 @@
     "lodash": "^4.17.3",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.2",
-    "zone.js": "~0.6.23"
+    "zone.js": "0.6.23"
   },
   "devDependencies": {
     "@types/cucumber": "0.0.31",
     "@types/es6-shim": "0.0.31",
     "@types/jasmine": "^2.2.33",
     "@types/node": "^6.0.38",
+    "@types/selenium-webdriver": "^2.53.38",
     "angular2-template-loader": "^0.4.0",
     "autoprefixer": "^6.5.1",
     "awesome-typescript-loader": "^1.1.1",

@@ -8,14 +8,14 @@
     <div *ngFor="let message of messages" class="message">
         <div class="panel panel-default">
             <div class="panel-body">
-                <p>
+                <p class="title">
                     <strong>{{message.title}}</strong>
                     <span (click)="remove(message)" class="glyphicon glyphicon-remove align-right"></span>
                 </p>
-                <p>
+                <p class="info">
                     <i>{{message.email}}</i> <strong>{{message.date}}</strong>
                 </p>
-                <div class="well">{{message.text}}</div>
+                <div class="well message-text">{{message.text}}</div>
             </div>
         </div>
     </div>

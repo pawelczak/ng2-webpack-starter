@@ -1,7 +1,7 @@
 Feature: Application navigation
 
 
-    Scenario: User should see all links in navigatio
+    Scenario: User should see all links in navigation
         Given user goes to home page
         Then user should see home link
         And user should see repos link

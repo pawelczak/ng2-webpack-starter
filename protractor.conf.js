@@ -5,8 +5,8 @@ exports.config = {
 
     exclude: [],
 
-    allScriptsTimeout: 110000,
-    getPageTimeout: 10000,
+    allScriptsTimeout: 5000,
+    getPageTimeout: 5000,
 
     /* CucumberJS: */
     framework: 'custom',

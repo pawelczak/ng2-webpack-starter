@@ -1,30 +1,30 @@
 <form [formGroup]="addMessageForm" (ngSubmit)="addMessage(addMessageForm.value)" [ngClass]="{'form-submitted': submitted}"
       novalidate id="contact-form" class="form-horizontal">
     <div class="form-group">
-        <label for="title" class="col-sm-2 control-label">Title</label>
+        <label for="contact-form-title" class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
-            <input formControlName="title" type="text" class="form-control" id="title" placeholder="Title">
+            <input formControlName="title" type="text" class="form-control" id="contact-form-title" placeholder="Title">
             <p class="control-error" *ngIf="(submitted || addMessageForm.controls.title.touched) && addMessageForm.controls.title.hasError('required')">Title is required.</p>
         </div>
     </div>
     <div class="form-group">
-        <label for="email" class="col-sm-2 control-label">Email</label>
+        <label for="contact-form-email" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-            <input formControlName="email" type="email" class="form-control" id="email" placeholder="Email">
+            <input formControlName="email" type="email" class="form-control" id="contact-form-email" placeholder="Email">
             <p class="control-error" *ngIf="(submitted || addMessageForm.controls.email.touched) && addMessageForm.controls.email.hasError('required')">Email is required.</p>
             <p class="control-error" *ngIf="(submitted || addMessageForm.controls.email.touched) && addMessageForm.controls.email.hasError('invalidEmail') && !addMessageForm.controls.email.hasError('required')">This needs to be a valid email address.</p>
         </div>
     </div>
     <div class="form-group">
-        <label for="message" class="col-sm-2 control-label">Message</label>
+        <label for="contact-form-message" class="col-sm-2 control-label">Message</label>
         <div class="col-sm-10">
-            <textarea formControlName="message" class="form-control" id="message" ></textarea>
+            <textarea formControlName="message" class="form-control" id="contact-form-message" ></textarea>
             <p class="control-error" *ngIf="(submitted || addMessageForm.controls.message.touched) && addMessageForm.controls.message.hasError('required')">Message is required.</p>
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button id="contact-form-submit" type="submit" class="btn btn-primary">Send</button>
         </div>
     </div>
 </form>

@@ -9,11 +9,19 @@
     "removeComments": false,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+        "node_modules/@types"
+    ],
+    "lib": [
+        "dom",
+        "es6"
+    ],
     "types": [
         "cucumber",
         "es6-shim",
         "jasmine",
-        "node"
+        "node",
+        "selenium-webdriver"
       ]
   },
   "exclude": [

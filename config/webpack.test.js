@@ -27,7 +27,6 @@ module.exports = {
                 loaders: [
                     'to-string-loader',
                     'css-loader',
-                    // 'postcss-loader',
                     'sass-loader'
                 ]
             },
