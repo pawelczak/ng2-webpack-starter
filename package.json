@@ -101,8 +101,8 @@
     "tslint-loader": "^2.1.5",
     "typescript": "2.1.1",
     "url-loader": "^0.5.7",
-    "webpack": "2.1.0-beta.27",
-    "webpack-dev-server": "2.1.0-beta.11",
-    "webpack-merge": "~1.0.1"
+    "webpack": "2.2.0-rc.3",
+    "webpack-dev-server": "2.2.0-rc.0",
+    "webpack-merge": "~2.0.0"
   }
 }
