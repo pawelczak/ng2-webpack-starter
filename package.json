@@ -1,9 +1,9 @@
 {
-  "name": "ng2-webpack-starter",
+  "name": "ngx-webpack-starter",
   "version": "0.0.1",
-  "description": "Angular2 webpack starter",
+  "description": "Angular webpack starter",
   "keywords": [
-    "angular2",
+    "angular",
     "webpack",
     "karma",
     "jasmine",
