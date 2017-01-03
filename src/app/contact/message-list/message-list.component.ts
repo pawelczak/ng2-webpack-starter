@@ -10,7 +10,7 @@ import { ModalConfiguration } from '../../util/modal/modal-configuration';
     selector: 'message-list',
     templateUrl: './message-list.component.html',
     styleUrls: [
-        './message-list.component.scss'
+        './message-list.component.ngx.scss'
     ]
 })
 export class MessageListComponent implements OnInit {

@@ -6,7 +6,7 @@ import { ModalCommunicationService } from './modal-communication.service';
     selector: 'modal-window',
     templateUrl: './modal-window.component.html',
     styleUrls: [
-        './modal-window.component.scss'
+        './modal-window.component.ngx.scss'
     ]
 })
 export class ModalWindowComponent {

@@ -8,7 +8,7 @@ import { EmailValidator } from '../../util/validators/email.validator';
 @Component({
     selector: 'contact-form',
     templateUrl: './contact-form.component.html',
-    styleUrls: ['./contact-form.component.scss']
+    styleUrls: ['./contact-form.component.ngx.scss']
 })
 export class ContactFormComponent implements OnInit {
 

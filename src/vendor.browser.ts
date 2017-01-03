@@ -15,4 +15,4 @@ import 'rxjs';
 // import 'jquery';
 import 'lodash';
 
-// import 'bootstrap-loader';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

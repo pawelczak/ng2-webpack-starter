@@ -39,8 +39,8 @@ import { ModalModule } from './util/modal/modal.module';
         MessageListComponent,
         ConfirmMessageRemoveComponent
     ],
-    providers: [],
     entryComponents: [
+        AppComponent,
         ConfirmMessageRemoveComponent
     ],
     bootstrap: [
