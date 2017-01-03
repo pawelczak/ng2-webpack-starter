@@ -1,13 +1,11 @@
-// webpack.aot.config.js
-
-var webpack = require('webpack');
+const webpack = require('webpack'),
+      path = require('path');
 // var CompressionPlugin = require("compression-webpack-plugin");
 
-var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = {
 
-    debug: false,
     profile: true,
     devtool: false,
     entry: {
@@ -21,10 +19,14 @@ module.exports = {
         publicPath: "dist/"
     },
     resolve: {
-        extensions: ['', '.ts', '.js', '.jpg', '.jpeg', '.gif', '.png', '.css', '.html']
+        extensions: ['.ts', '.js', '.jpg', '.jpeg', '.gif', '.png', '.css', '.html'],
+        modules: [
+            path.join(__dirname, '../node_modules'),
+            path.join(__dirname, '../src')
+        ]
     },
     module: {
-        loaders: [
+        rules: [
             { test: /\.(jpg|jpeg|gif|png)$/, loader:'file-loader?name=img/[path][name].[ext]' },
             { test: /\.(eof|woff|woff2|svg)$/, loader:'file-loader?name=img/[path][name].[ext]' },
             { test: /\.css$/, loader:'raw-loader' },
@@ -33,9 +35,24 @@ module.exports = {
         ],
         exprContextCritical: false
     },
-    modulesDirectories: ['node_modules'],
     plugins: [
-        // new webpack.LoaderOptionsPlugin({
+        new webpack.LoaderOptionsPlugin({
+            debug: false,
+            node: {
+                __filename: true
+            },
+            devServer: {
+                inline:true,
+                port: 8080,
+                historyApiFallback: true,
+                watchOptions: {
+                    aggregateTimeout: 300,
+                    poll: 1000
+                }
+            }
+        })
+
+    // new webpack.LoaderOptionsPlugin({
         //     minimize: true,
         //     debug: false
         // }),
@@ -55,18 +72,5 @@ module.exports = {
         //     threshold: 10240,
         //     minRatio: 0.8
         // })
-    ],
-    node: {
-        __filename: true
-    },
-    devServer: {
-        inline:true,
-        port: 8080,
-        historyApiFallback: true,
-        watchOptions: {
-            aggregateTimeout: 300,
-            poll: 1000
-        }
-    }
-
+    ]
 };
