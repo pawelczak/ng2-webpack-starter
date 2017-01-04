@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ModalCommunicationService } from './modal-communication.service';
+import { ModalCommunicationService } from '../modal-communication.service';
 
 @Component({
     selector: 'modal-window',

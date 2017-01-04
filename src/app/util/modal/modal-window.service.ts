@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/never';
 import 'rxjs/add/operator/take';
 
-import { ModalWindowComponent } from './modal-window.component';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
 import { ModalCommunicationService } from './modal-communication.service';
 import { ModalConfiguration } from './modal-configuration';
 
