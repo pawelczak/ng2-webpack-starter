@@ -13,7 +13,8 @@ export class EmailValidator {
             return {
                 invalidEmail: true
             };
+        } else {
+            return null;
         }
-        return null;
     }
 }
