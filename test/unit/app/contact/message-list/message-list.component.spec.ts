@@ -79,22 +79,22 @@ describe('MessageListComponent', () => {
 
         // given
         const messageOne = new Message();
-        messageOne.title = 'Title';
-        messageOne.email = 'email';
-        messageOne.text = 'text';
+        messageOne.title = 'Awesome message';
+        messageOne.email = 'jane@doe.com';
+        messageOne.text = 'This message is the best';
         messageOne.date = '12.01.2016';
 
         const messageTwo = new Message();
-        messageTwo.title = 'Title';
-        messageTwo.email = 'email';
-        messageTwo.text = 'text';
-        messageTwo.date = '12.01.2016';
+        messageTwo.title = 'Wow';
+        messageTwo.email = 'bot@beep.beep';
+        messageTwo.text = 'I am a bot beep beep !';
+        messageTwo.date = '05.07.2026';
 
         const messageThree = new Message();
-        messageThree.title = 'Title';
-        messageThree.email = 'email';
-        messageThree.text = 'text';
-        messageThree.date = '12.01.2016';
+        messageThree.title = 'Nice job';
+        messageThree.email = 'mister@nice.eu';
+        messageThree.text = 'Perfecto !';
+        messageThree.date = '27.10.1984';
 
         const messages: Array<Message> = [messageOne, messageTwo, messageThree];
 
@@ -148,9 +148,9 @@ describe('MessageListComponent', () => {
     it ('should be possible to remove message', () => {
         // given
         const messageOne = new Message();
-        messageOne.title = 'Title';
-        messageOne.email = 'email';
-        messageOne.text = 'text';
+        messageOne.title = 'Message to remove';
+        messageOne.email = 'confidential@no.domain';
+        messageOne.text = 'Please remove this';
         messageOne.date = '12.01.2016';
 
         const messages: Array<Message> = [messageOne];
