@@ -15,7 +15,8 @@ import { ModalConfiguration } from '../../util/modal/modal-configuration';
 })
 export class MessageListComponent implements OnInit {
 
-    private messages: Array<Message> = [];
+    messages: Array<Message> = [];
+
     private modalConfig: ModalConfiguration = <ModalConfiguration>{
         title: 'Remove message',
         cancelBtnEnabled: true,

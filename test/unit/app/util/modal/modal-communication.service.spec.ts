@@ -74,7 +74,7 @@ describe('ModalCommunicationService', () => {
         expect(actualAction).toBeUndefined();
         expect(completed).toEqual(true);
 
-    })
+    });
 
     it ('should be possible to renew communication', () => {
 
