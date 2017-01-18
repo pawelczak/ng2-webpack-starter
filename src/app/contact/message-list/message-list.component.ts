@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Message } from '../message';
 import { MessagesService } from '../messages.service';
 import { ModalWindowService } from '../../util/modal/modal-window.service';
 import { ConfirmMessageRemoveComponent } from './confirm-message-remove.component';
 import { ModalConfiguration } from '../../util/modal/modal-configuration';
+
 
 @Component({
     selector: 'message-list',
@@ -13,7 +14,7 @@ import { ModalConfiguration } from '../../util/modal/modal-configuration';
         './message-list.component.ngx.scss'
     ]
 })
-export class MessageListComponent implements OnInit {
+export class MessageListComponent implements OnInit, OnDestroy {
 
     messages: Array<Message> = [];
 
@@ -25,22 +26,29 @@ export class MessageListComponent implements OnInit {
         confirmBtnText: 'Remove'
     };
 
+    private subscription: any;
+
     constructor(private messageService: MessagesService,
                 private modalWindowService: ModalWindowService) {}
 
     ngOnInit() {
-        this.messageService
-            .getMessages()
-            .subscribe((messages) => {
-                this.messages = messages;
-            });
+        this.subscription =
+            this.messageService
+                .getMessages()
+                .subscribe((messages) => {
+                    this.messages = messages;
+                });
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 
     remove(message: Message): void {
 
-        const subscription = this.modalWindowService.open(this.modalConfig, ConfirmMessageRemoveComponent);
+        this.subscription = this.modalWindowService.open(this.modalConfig, ConfirmMessageRemoveComponent);
 
-        subscription
+        this.subscription
             .subscribe((response: boolean) => {
                 if (response) {
                     this.messageService.remove(message);
