@@ -4,13 +4,8 @@ const path = require('path');
 module.exports = {
     devtool: 'inline-source-map',
 
-    entry: [
-        'todo'
-    ],
-
     resolve: {
-        extensions: ['.ts', '.js'],
-        modules: [path.resolve(__dirname, 'src'), 'node_modules']
+        extensions: ['.ts', '.js']
     },
 
     module: {
