@@ -33,6 +33,7 @@ export class ContactFormComponent implements OnInit {
             this.addMessageForm.reset();
             this.submitted = false;
         }
+
     }
 
 }
