@@ -7,7 +7,7 @@ import 'rxjs/add/operator/multicast';
 export abstract class AbstractData<T> {
 
     protected bridge$: Subject<T> = new ReplaySubject<T>(1);
-    protected data$: Observable<T>;
+    protected source$: Observable<T>;
 
     constructor() {
         this.load();
@@ -16,7 +16,7 @@ export abstract class AbstractData<T> {
     abstract fetch(): Observable<T>;
 
     get(): Observable<T> {
-        return this.data$;
+        return this.source$;
     }
 
     reload(): void {
@@ -27,11 +27,11 @@ export abstract class AbstractData<T> {
     }
 
     protected init() {
-        this.data$.subscribe(null);
+        this.source$.subscribe(null);
     }
 
     private load(): void {
-        this.data$ = this.fetch()
+        this.source$ = this.fetch()
                             .multicast(this.bridge$)
                             .refCount();
     }

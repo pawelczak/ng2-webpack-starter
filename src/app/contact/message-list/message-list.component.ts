@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Message } from '../message';
 import { MessagesService } from '../messages.service';
@@ -26,7 +27,7 @@ export class MessageListComponent implements OnInit, OnDestroy {
         confirmBtnText: 'Remove'
     };
 
-    private subscription: any;
+    private subscription: Subscription;
 
     constructor(private messageService: MessagesService,
                 private modalWindowService: ModalWindowService) {}
@@ -46,14 +47,14 @@ export class MessageListComponent implements OnInit, OnDestroy {
 
     remove(message: Message): void {
 
-        this.subscription = this.modalWindowService.open(this.modalConfig, ConfirmMessageRemoveComponent);
+        const source = this.modalWindowService.open(this.modalConfig, ConfirmMessageRemoveComponent);
 
-        this.subscription
-            .subscribe((response: boolean) => {
-                if (response) {
-                    this.messageService.remove(message);
-                }
-            });
+        this.subscription = source
+                                .subscribe((response: boolean) => {
+                                    if (response) {
+                                        this.messageService.remove(message);
+                                    }
+                                });
 
     }
 }
