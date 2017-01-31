@@ -10,7 +10,6 @@ export abstract class AbstractData<T> {
     protected source$: Observable<T>;
 
     constructor() {
-        this.load();
     }
 
     abstract fetch(): Observable<T>;
@@ -27,6 +26,7 @@ export abstract class AbstractData<T> {
     }
 
     protected init() {
+        this.load();
         this.source$.subscribe(null);
     }
 
