@@ -1,5 +1,5 @@
 // 3d party imports
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject, async } from '@angular/core/testing';
 import { BaseRequestOptions, Http, ConnectionBackend, HttpModule, ResponseOptions, Response } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
